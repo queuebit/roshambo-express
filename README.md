@@ -16,6 +16,8 @@ The app is deployed on [heroku](https://pacific-mesa-1393.herokuapp.com/roshambo
   * Show a history of the last 10 games using redis
 * Add some logging using [morgan](https://github.com/expressjs/morgan)
 * Add _secret_ weapons
+* Add support for `*.ejs` templating
+* Arrange roshambo into a node module
 
 
 ### Broken things

@@ -81,4 +81,14 @@ describe('Requests to roshambo stats', function() {
       .get('/roshambo/stats')
       .expect(200,done);
   });
+  it('Returns HTML format', function(done) {
+    request(app)
+      .get('/roshambo/stats')
+      .expect('Content-Type',/html/,done);
+  });
+  it('Returns win information', function(done) {
+    request(app)
+      .get('/roshambo/stats')
+      .expect(/wins/i,done);
+  });
 });

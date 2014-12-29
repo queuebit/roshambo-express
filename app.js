@@ -35,7 +35,7 @@ app.param('weapon', function(request,response,next) {
 
 app.get('/roshambo/stats', function(request, response, next) {
   client.hgetall('games', function(error, games) {
-    response.json(games);
+    response.render('stats.ejs',{ stats: games });
   });
 
 });
