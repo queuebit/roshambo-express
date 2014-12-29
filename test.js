@@ -4,13 +4,26 @@ var app = require('./app');
 describe('Requests to the roshambo path', function() {
   it('Returns a 200 status code', function(done) {
     request(app)
-      .get('/roshambo')
+      .get('/roshambo/')
       .expect(200)
       .end(function(error) {
         if(error) throw error;
         done();
       });
   });
+  it('Returns HTML format', function(done) {
+    request(app)
+      .get('/roshambo/')
+      .expect('Content-Type', /html/, done);
+  });
+  it('Returns an index file with Rock', function(done) {
+    request(app)
+      .get('/roshambo/')
+      .expect(/rock/i, done);
+  });
+});
+
+describe('Requests to the roshambo game with weapon', function() {
   it('Returns a 400 status code for bad weapon', function(done) {
     request(app)
       .get('/roshambo/penny')

@@ -7,9 +7,7 @@ app.get('/', function(request,response) {
   response.send('Hello world'); // Returns Content-Type 'text/html' for string
 });
 
-app.get('/roshambo', function(request,response,next) {
-  response.json('Rock, Paper, or Scissors please');
-});
+app.use('/roshambo', express.static(__dirname + '/public'));
 
 app.param('weapon', function(request,response,next) {
   var weapon = request.params.weapon.toLowerCase();
