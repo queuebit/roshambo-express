@@ -21,3 +21,4 @@ The app is deployed on [heroku](https://pacific-mesa-1393.herokuapp.com/roshambo
 ### Broken things
 * Figure out why I need to get('/roshambo/') to get the tests to pass ('/roshambo' sends on a 303 to '/roshambo/')
 * Figure out how to use [sinon stubs](http://sinonjs.org/docs/#stubs) to stub out calls to botThrows()
+* Figure out how to handle roshambo/stats and roshambo/:weapon so order doesn't matter in app.js (some form of regex matching of route?)

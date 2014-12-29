@@ -74,3 +74,11 @@ describe('Requests to the roshambo game with weapon', function() {
       });
   });
 });
+
+describe('Requests to roshambo stats', function() {
+  it('Returns a 200 status code', function(done) {
+    request(app)
+      .get('/roshambo/stats')
+      .expect(200,done);
+  });
+});

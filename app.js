@@ -1,6 +1,13 @@
 var express = require('express');
 var app = express();
 
+var redis = require('redis');
+var client = redis.createClient();
+
+client.hset('games', 'bot', 0);
+client.hset('games', 'human', 0);
+client.hset('games', 'tie', 0);
+
 var weapons = ['rock','paper','scissors'];
 
 app.get('/', function(request,response) {
@@ -18,10 +25,28 @@ app.param('weapon', function(request,response,next) {
   }
 });
 
+app.get('/roshambo/stats', function(request, response, next) {
+  client.hgetall('games', function(error, games) {
+    response.json(games);
+  });
+
+});
+
 app.get('/roshambo/:weapon', function(request,response,next) {
   var humanThrew = request.params.weapon;
   var botThrew = botThrows();
   var winner = whoWon(humanThrew,botThrew); 
+  switch (winner) {
+    case 'human':
+      client.hincrby('games','human',1);
+      break;
+    case 'bot':
+      client.hincrby('games','bot',1);
+      break;
+    case 'tie':
+      client.hincrby('games','tie',1);
+      break;
+  }
   var game = {
     'human': humanThrew,
     'bot': botThrew,
