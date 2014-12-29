@@ -1,6 +1,24 @@
 var request = require('supertest');
 var app = require('./app');
 
+// describe('Determines whoWon', function() {
+//   describe('Human wins', function() {
+//     it('(rock,scissors)', function(done) {
+//       botThrows = function() { return 'scissors' };
+//       request(app)
+//         .get('/roshambo/rock')
+//         .expect(200)
+//         .expect(function(response) {
+//           if(!(response.body.winner === 'human')) return 'wrong winner';
+//         })
+//         .end(function(error,response) {
+//           if(error) throw error;
+//           done();
+//         });
+//     });
+//   });
+// });
+
 describe('Requests to the roshambo path', function() {
   it('Returns a 200 status code', function(done) {
     request(app)

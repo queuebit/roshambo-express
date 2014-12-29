@@ -14,3 +14,4 @@ This is a simple test api-like app I am making after doing the [Code School Buil
 
 ### Broken things
 * Figure out why I need to get('/roshambo/') to get the tests to pass ('/roshambo' sends on a 303 to '/roshambo/')
+* Figure out how to use [sinon stubs](http://sinonjs.org/docs/#stubs) to stub out calls to botThrows()
