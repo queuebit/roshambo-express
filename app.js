@@ -70,6 +70,4 @@ function whoWon(human,bot) {
   }
 }
 
-app.listen(3001, function() {
-  console.log('Rock, Paper, Scissoring on port 3001');
-});
+module.exports = app;

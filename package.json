@@ -6,7 +6,9 @@
   "dependencies": {
     "express": "^4.10.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "supertest": "^0.15.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
