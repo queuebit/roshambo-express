@@ -25,4 +25,21 @@ describe('Requests to the roshambo path', function() {
       .get('/roshambo/rock')
       .expect(200, done);
   });
+  it('Returns JSON format', function(done) {
+    request(app)
+      .get('/roshambo/rock')
+      .expect('Content-Type', /json/, done);
+  });
+  it('Returns human weapon used', function(done) {
+    request(app)
+      .get('/roshambo/paper')
+      .expect(200)
+      .expect(function(response) {
+        if (!(response.body.human === 'paper')) return 'wrong weapon';
+      })
+      .end(function(error, response) {
+        if(error) throw error;
+        done();
+      });
+  });
 });

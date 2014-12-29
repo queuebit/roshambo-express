@@ -4,7 +4,7 @@ var app = express();
 var weapons = ['rock','paper','scissors'];
 
 app.get('/', function(request,response) {
-  response.send('Hello world');
+  response.send('Hello world'); // Returns Content-Type 'text/html' for string
 });
 
 app.get('/roshambo', function(request,response,next) {
